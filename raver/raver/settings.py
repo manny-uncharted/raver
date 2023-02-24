@@ -34,13 +34,13 @@ INSTALLED_APPS = [
 
     # Local apps
     'account.apps.AccountConfig',
-    'account.apps.ImagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'images.apps.ImagesConfig',
 
     # Third party apps
     'social_django',

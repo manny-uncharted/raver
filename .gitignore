@@ -1,6 +1,12 @@
 /notes
-./accounts/__pycache__
 
 /cert
 
-/raver/db.sqlite3
+*.crt
+*.key
+
+__pycache__/
+
+raver/raver/__pycache__/
+
+raver/account/__pycache__/
