@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1kg=vqxuqi-v9j#m^b1)ev754d%p5(08kzm0k3=1#skt(#z*!@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third party apps
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +61,7 @@ ROOT_URLCONF = 'raver.urls'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
 ]
 
 TEMPLATES = [
@@ -110,11 +115,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Password Hashers
 PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     'django.contrib.auth.hashers.ScryptPasswordHasher',
 ]
 
