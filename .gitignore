@@ -2,5 +2,5 @@
 ./accounts/__pycache__
 
 */.crt
-./raver/cert.key
-./raver/cert.crt
+raver\cert.key
+raver\cert.crt
