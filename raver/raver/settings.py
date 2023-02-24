@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 
     # Local apps
     'account.apps.AccountConfig',
+    'account.apps.ImagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
