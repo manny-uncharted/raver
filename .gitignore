@@ -2,3 +2,5 @@
 ./accounts/__pycache__
 
 /cert
+
+/raver/db.sqlite3
