@@ -16,21 +16,22 @@ def image_create(request):
         # form is sent
         form = ImageCreateForm(data=request.POST)
         if form.is_valid():
-            # if the data is valid
+            # form data is valid
             cd = form.cleaned_data
             new_image = form.save(commit=False)
             # assign current user to the item
             new_image.user = request.user
             new_image.save()
             messages.success(request, 'Image added successfully')
-            # redirect to new created item detail view
+            # redirect to new created image detail view
             return redirect(new_image.get_absolute_url())
     else:
         # build form with data provided by the bookmarklet via GET
         form = ImageCreateForm(data=request.GET)
     return render(request,
-        'images/image/create.html',
-        {'section': 'images', 'form': form})
+                  'images/image/create.html',
+                  {'section': 'images',
+                   'form': form})
 
 
 def image_detail(request, id, slug):
@@ -55,7 +56,7 @@ def image_like(request):
             else:
                 image.users_like.remove(request.user)
             return JsonResponse({'status': 'ok'})
-        except:
+        except Image.DoesNotExist:
             pass
     return JsonResponse({'status': 'error'})
 
@@ -73,14 +74,17 @@ def image_list(request):
         images = paginator.page(1)
     except EmptyPage:
         if images_only:
-            # checks if the ajax request and page is out of range and returns empty page
+            # If AJAX request and page out of range
+            # return an empty page
             return HttpResponse('')
-        # If page is out of range deliver last page of results
+        # If page out of range return last page of results
         images = paginator.page(paginator.num_pages)
     if images_only:
         return render(request,
                       'images/image/list_images.html',
-                      {'section': 'images', 'images': images})
+                      {'section': 'images',
+                       'images': images})
     return render(request,
-                    'images/image/list.html',
-                    {'section': 'images', 'images': images})
+                  'images/image/list.html',
+                   {'section': 'images',
+                    'images': images})
