@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'easy_thumbnails',
     'debug_toolbar',
+    'redis',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +68,7 @@ MIDDLEWARE = [
 ]
 
 INTERNAL_IPS = [
-    '127.0.0.1',
+    '127.0.0.1', 'localhost'
 ]
 
 ROOT_URLCONF = 'raver.urls'
@@ -176,6 +177,7 @@ USE_TZ = True
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 0
+
 
 
 # Static files (CSS, JavaScript, Images)

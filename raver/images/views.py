@@ -47,8 +47,10 @@ def image_detail(request, id, slug):
     # increment total image views by 1
     total_views = r.incr(f'image:{image.id}:views')
     return render(request,
-        'images/image/detail.html',
-        {'section': 'images', 'image': image, 'total_views': total_views})
+    'images/image/detail.html',
+    {'section': 'images',
+    'image': image,
+    'total_views': total_views})
 
 """
 Like and unlike views
